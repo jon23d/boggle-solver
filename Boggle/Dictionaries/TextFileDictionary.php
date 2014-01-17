@@ -76,6 +76,10 @@
                 }
             }
 
+            if (!count($this->word_list)) {
+                throw new \DomainException('Word list is empty');
+            }
+
             // set the initialization flag and return the word list
             $this->is_initialized = true;
 

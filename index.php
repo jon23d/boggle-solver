@@ -20,8 +20,11 @@ spl_autoload_register(function($className) {
 
 // Load a dictionary and look for words!
 $Dictionary = new \Boggle\Dictionaries\TextFileDictionary(
-    __DIR__ . '/Boggle/Dictionaries/english-list.txt',
+    __DIR__ . '/Boggle/Dictionaries/scrabble-dictionary.txt',
     PHP_EOL)
 ;
+echo '<em>Your board</em>';
 $Game = new \Boggle\Game($Dictionary, 4, 4);
-$Game->outputBoardAsHtml()->outputWordListAsHtml();
+$Game->outputBoardAsHtml();
+echo '<em>Matched words</em>';
+$Game->outputWordListAsHtml();
