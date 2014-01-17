@@ -1,4 +1,11 @@
 <?
+    /**
+     * An interface to be used in various dictionary classes.
+     *
+     * @package Boggle
+     * @author Jonathon Deason <jon23d@gmail.com>
+     */
+
     namespace Boggle;
 
     interface Dictionary {

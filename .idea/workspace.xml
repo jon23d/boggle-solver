@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16f3365f-c3a9-4a88-a523-0a9bc8f4611c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Boggle/Dictionaries/LinuxDictionary.php" afterPath="$PROJECT_DIR$/Boggle/Dictionaries/LinuxDictionary.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Boggle/Dictionaries/TestDictionary.php" afterPath="$PROJECT_DIR$/Boggle/Dictionaries/TestDictionary.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Boggle/Dictionary.php" afterPath="$PROJECT_DIR$/Boggle/Dictionary.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Boggle/Game.php" afterPath="$PROJECT_DIR$/Boggle/Game.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Boggle/Tile.php" afterPath="$PROJECT_DIR$/Boggle/Tile.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Boggle/Tree.php" afterPath="$PROJECT_DIR$/Boggle/Tree.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
     </list>
@@ -33,23 +33,32 @@
       <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="60" selection-start="674" selection-end="674" vertical-scroll-proportion="-12.5">
+            <state line="16" column="22" selection-start="563" selection-end="563" vertical-scroll-proportion="-10.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Game.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Game.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Boggle/Game.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="12" selection-start="1923" selection-end="1923" vertical-scroll-proportion="-2.764045">
+            <state line="3" column="76" selection-start="161" selection-end="161" vertical-scroll-proportion="-1.875">
               <folding>
-                <marker date="1389987024000" expanded="true" signature="2585:4802" placeholder="..." />
-                <marker date="1389987024000" expanded="true" signature="3395:3559" placeholder="..." />
-                <marker date="1389987024000" expanded="true" signature="3395:3545" placeholder="..." />
-                <marker date="1389987024000" expanded="true" signature="3399:3551" placeholder="..." />
-                <marker date="1389987024000" expanded="true" signature="3399:3545" placeholder="..." />
+                <marker date="1389987309000" expanded="true" signature="2821:5038" placeholder="..." />
+                <marker date="1389987309000" expanded="true" signature="3631:3795" placeholder="..." />
+                <marker date="1389987309000" expanded="true" signature="3631:3781" placeholder="..." />
+                <marker date="1389987309000" expanded="true" signature="3635:3787" placeholder="..." />
+                <marker date="1389987309000" expanded="true" signature="3635:3781" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Tile.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Boggle/Tile.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="111" selection-start="122" selection-end="122" vertical-scroll-proportion="-1.25">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -57,8 +66,10 @@
       <file leaf-file-name="Dictionary.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Boggle/Dictionary.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="20" selection-start="335" selection-end="335" vertical-scroll-proportion="-6.875">
-              <folding />
+            <state line="0" column="0" selection-start="0" selection-end="161" vertical-scroll-proportion="-0.0">
+              <folding>
+                <element signature="e#7#160#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -66,8 +77,19 @@
       <file leaf-file-name="LinuxDictionary.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Boggle/Dictionaries/LinuxDictionary.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="9" selection-start="2258" selection-end="2258" vertical-scroll-proportion="-41.875">
+            <state line="2" column="51" selection-start="62" selection-end="62" vertical-scroll-proportion="-1.25">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestDictionary.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Boggle/Dictionaries/TestDictionary.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="10" selection-start="772" selection-end="772" vertical-scroll-proportion="0.4681648">
+              <folding>
+                <element signature="e#7#190#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -75,7 +97,7 @@
       <file leaf-file-name="Tree.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Boggle/Tree.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="5" selection-start="31" selection-end="31" vertical-scroll-proportion="-1.875">
+            <state line="3" column="24" selection-start="138" selection-end="138" vertical-scroll-proportion="-1.875">
               <folding />
             </state>
           </provider>
@@ -99,14 +121,14 @@
         <option value="$PROJECT_DIR$/Boggle/BoggleBoard.php" />
         <option value="$PROJECT_DIR$/Boggle/Dictionaries/test_dictionary_word_list.txt" />
         <option value="$PROJECT_DIR$/Boggle/TreeNode.php" />
-        <option value="$PROJECT_DIR$/Boggle/Tile.php" />
         <option value="$PROJECT_DIR$/Boggle/Dictionaries/test_dictionary_word_list_small.txt" />
-        <option value="$PROJECT_DIR$/Boggle/Dictionaries/TestDictionary.php" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/Boggle/Dictionaries/LinuxDictionary.php" />
         <option value="$PROJECT_DIR$/Boggle/Dictionary.php" />
-        <option value="$PROJECT_DIR$/Boggle/Tree.php" />
         <option value="$PROJECT_DIR$/Boggle/Game.php" />
+        <option value="$PROJECT_DIR$/Boggle/Tile.php" />
+        <option value="$PROJECT_DIR$/Boggle/Tree.php" />
+        <option value="$PROJECT_DIR$/Boggle/Dictionaries/LinuxDictionary.php" />
+        <option value="$PROJECT_DIR$/Boggle/Dictionaries/TestDictionary.php" />
       </list>
     </option>
   </component>
@@ -336,57 +358,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Boggle/Tile.php">
+    <entry file="file://$PROJECT_DIR$/LICENSE">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="32" selection-start="280" selection-end="285" vertical-scroll-proportion="-0.6292135">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Boggle/Dictionaries/TestDictionary.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="0" selection-end="2282" vertical-scroll-proportion="0.26217228">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="60" selection-start="674" selection-end="674" vertical-scroll-proportion="-12.5">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Boggle/Tree.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="5" selection-start="31" selection-end="31" vertical-scroll-proportion="-1.875">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Boggle/Dictionaries/LinuxDictionary.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="9" selection-start="2258" selection-end="2258" vertical-scroll-proportion="-41.875">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Boggle/Dictionary.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="20" selection-start="335" selection-end="335" vertical-scroll-proportion="-6.875">
-          <folding />
+        <state line="0" column="0" selection-start="0" selection-end="161" vertical-scroll-proportion="-0.0">
+          <folding>
+            <element signature="e#7#160#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Boggle/Game.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="12" selection-start="1923" selection-end="1923" vertical-scroll-proportion="-2.764045">
+        <state line="3" column="76" selection-start="161" selection-end="161" vertical-scroll-proportion="-1.875">
           <folding>
-            <marker date="1389987024000" expanded="true" signature="2585:4802" placeholder="..." />
-            <marker date="1389987024000" expanded="true" signature="3395:3559" placeholder="..." />
-            <marker date="1389987024000" expanded="true" signature="3395:3545" placeholder="..." />
-            <marker date="1389987024000" expanded="true" signature="3399:3551" placeholder="..." />
-            <marker date="1389987024000" expanded="true" signature="3399:3545" placeholder="..." />
+            <marker date="1389987309000" expanded="true" signature="2821:5038" placeholder="..." />
+            <marker date="1389987309000" expanded="true" signature="3631:3795" placeholder="..." />
+            <marker date="1389987309000" expanded="true" signature="3631:3781" placeholder="..." />
+            <marker date="1389987309000" expanded="true" signature="3635:3787" placeholder="..." />
+            <marker date="1389987309000" expanded="true" signature="3635:3781" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Boggle/Tree.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="24" selection-start="138" selection-end="138" vertical-scroll-proportion="-1.875">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Boggle/Tile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="111" selection-start="122" selection-end="122" vertical-scroll-proportion="-1.25">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="22" selection-start="563" selection-end="563" vertical-scroll-proportion="-10.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Boggle/Dictionaries/LinuxDictionary.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="51" selection-start="62" selection-end="62" vertical-scroll-proportion="-1.25">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Boggle/Dictionaries/TestDictionary.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="10" selection-start="772" selection-end="772" vertical-scroll-proportion="0.4681648">
+          <folding>
+            <element signature="e#7#190#0" expanded="true" />
           </folding>
         </state>
       </provider>

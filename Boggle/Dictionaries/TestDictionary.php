@@ -1,4 +1,10 @@
 <?
+    /**
+     * A Dictionary that uses the a sample word list found in test_dictionary_word_list.txt
+     *
+     * @package Boggle
+     * @author Jonathon Deason <jon23d@gmail.com>
+     */
     namespace Boggle\Dictionaries;
 
     class TestDictionary implements \Boggle\Dictionary {

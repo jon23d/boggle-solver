@@ -1,5 +1,12 @@
 <?
-namespace Boggle\Dictionaries;
+    /**
+     * A Dictionary that uses the wordlist found in /usr/share/dict/words
+     *
+     * @package Boggle
+     * @author Jonathon Deason <jon23d@gmail.com>
+     */
+
+    namespace Boggle\Dictionaries;
 
     class LinuxDictionary implements \Boggle\Dictionary {
 

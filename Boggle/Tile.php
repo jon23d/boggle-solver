@@ -1,4 +1,11 @@
 <?
+    /**
+     * This class represents a single tile on a Boggle board.  It contains metadata to help speed up processing
+     *
+     * @package Boggle
+     * @author Jonathon Deason <jon23d@gmail.com>
+     */
+
     namespace Boggle;
 
     class Tile {

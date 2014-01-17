@@ -1,4 +1,12 @@
 <?
+    /**
+     * This class represents a tree structure of the loaded dictionary.  This will speed up the lookup
+     * of various words.
+     *
+     * @package Boggle
+     * @author Jonathon Deason <jon23d@gmail.com>
+     */
+
     namespace Boggle;
 
     class Tree {

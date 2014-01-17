@@ -1,4 +1,12 @@
 <?
+    /**
+     * The actual boggle game.  Instantiate this class with a dictionary,
+     * then call outputBoardAsHtml & outputWordListAsHtml to see the output.
+     *
+     * @package Boggle
+     * @author Jonathon Deason <jon23d@gmail.com>
+     */
+
     namespace Boggle;
 
     class Game {
@@ -50,7 +58,7 @@
                 ->height = $height;
             $this->width = $width;
             $this->longest_word_length = $Dictionary->getLongestWordLength();
-            
+
             unset($Dictionary);
         }
 
