@@ -53,13 +53,13 @@
             for ($i = 0; $i < strlen($word); $i++) {
                 // if the next node doesn't exist, then neither does the word
                 if (!isset($node[$letters[$i]])) {
-                    return false;
+                    return Dictionary::MISSING_PREFIX;
                 }
 
                 $node =& $node[$letters[$i]];
             }
 
             // If the final node contains the end of word marker, then we have a word
-            return (isset($node[self::END_OF_WORD_MARKER])) ? true : false;
+            return isset($node[self::END_OF_WORD_MARKER]);
         }
     }

@@ -18,7 +18,7 @@ spl_autoload_register(function($className) {
 });
 
 // let's just start with the test dictionary
-$TestDictionary = new \Boggle\Dictionaries\TestDictionary();
+$TestDictionary = new \Boggle\Dictionaries\LinuxDictionary();
 $Game = new \Boggle\Game($TestDictionary, 4, 4);
 $Game->outputBoardAsHtml();
 $Game->outputWordListAsHtml();

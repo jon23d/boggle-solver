@@ -18,7 +18,12 @@
         /** @var int $width             The width of the board */
         private $width = null;
 
-        private $iterations = 0;
+        /** @var int $longest_word_length   The length of the longest word in the loaded dictionary */
+        private $longest_word_length = 0;
+
+        /** @var string[] $not_found_prefixes       A list of prefixes NOT FOUND in the dictionary */
+        private $not_found_prefixes = array();
+
 
         /**
          * Create a new Game
@@ -40,10 +45,13 @@
                 throw new \InvalidArgumentException('Height and width must be integers greater than 1');
             }
 
-            $this->initializeBoard($width, $height, true)
+            $this->initializeBoard($width, $height)
                 ->initializeTree($Dictionary)
                 ->height = $height;
             $this->width = $width;
+            $this->longest_word_length = $Dictionary->getLongestWordLength();
+            
+            unset($Dictionary);
         }
 
 
@@ -87,7 +95,7 @@
             }
 
             // separate out the word list into four columns
-            $columns = array_chunk($this->word_list, count($this->word_list / 4));
+            $columns = array_chunk($this->word_list, ceil(count($this->word_list) / 4));
 
             // and show a simple table
             echo '<table><tr>';
@@ -105,23 +113,13 @@
          *
          * @param int $width
          * @param int $height
-         * @param bool $use_test_data
          *
          * @return Game
          */
-        private function initializeBoard($width, $height, $use_test_data = false) {
-            $test_data = array('b','e','c','k');
-
+        private function initializeBoard($width, $height) {
             for ($row = 0; $row < $height; $row++) {
                 for ($column = 0; $column < $width; $column++) {
-                    if ($use_test_data === false) {
-                        $this->rows[$row][$column] = new Tile(chr(97 + mt_rand(0, 25)), $row, $column);
-                    } else {
-                        $letter = array_shift($test_data);
-                        $this->rows[$row][$column] = new Tile($letter, $row, $column);
-                        $test_data[] = $letter;
-                    }
-
+                    $this->rows[$row][$column] = new Tile(chr(97 + mt_rand(0, 25)), $row, $column);
                 }
             }
 
@@ -176,12 +174,28 @@
          * @param Tile $Tile
          * @param string $prefix
          *
-         * @return string[]
+         * @return void
          */
         private function getWords(Tile $Tile, $prefix) {
+            // If this prefix has already been marked as not found, then just return
+            if (in_array($prefix, $this->not_found_prefixes)) {
+                return;
+            }
+
             // If this Tile ends a word, add it to the list, but continue processing any potential neighbors
-            if ($this->Tree->doesWordExist($prefix)) {
+            $does_word_exist = $this->Tree->doesWordExist($prefix);
+            if (true === $does_word_exist) {
                 $this->word_list[] = $prefix;
+
+            // If the prefix itself doesn't exist, then add it to the list of missing prefixes, and return
+            } elseif (Dictionary::MISSING_PREFIX === $does_word_exist) {
+                $this->not_found_prefixes[] = $prefix;
+                return;
+            }
+
+            // There is no reason to continue recursion if we have met the length of the longest word in the dictionary
+            if (strlen($prefix) === $this->longest_word_length) {
+                return;
             }
 
             // mark this Tile as used to prevent an infinite loop
@@ -189,7 +203,6 @@
 
             // loop through the neighboring Tiles, checking the word list with the non-used ones appended to the prefix
             $Neighbors = $this->getNeighbors($Tile);
-            echo count($Neighbors) . '<br />';
             foreach ($Neighbors as $Neighbor) {
                 if (!$Neighbor->getIsUsed()) {
                     $this->getWords($Neighbor, $prefix . $Neighbor->getCharacter());
