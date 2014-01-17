@@ -44,9 +44,6 @@
                 ->initializeTree($Dictionary)
                 ->height = $height;
             $this->width = $width;
-            echo '<pre>';
-                print_r($this->Tree);
-            echo '</pre>';
         }
 
 
@@ -115,8 +112,8 @@
         private function initializeBoard($width, $height, $use_test_data = false) {
             $test_data = array('b','e','c','k');
 
-            for ($row = 1; $row <= $height; $row++) {
-                for ($column = 1; $column <= $width; $column++) {
+            for ($row = 0; $row < $height; $row++) {
+                for ($column = 0; $column < $width; $column++) {
                     if ($use_test_data === false) {
                         $this->rows[$row][$column] = new Tile(chr(97 + mt_rand(0, 25)), $row, $column);
                     } else {
@@ -182,14 +179,8 @@
          * @return string[]
          */
         private function getWords(Tile $Tile, $prefix) {
-            if (++$this->iterations == 1000) {
-                print_r($this->word_list);
-                die;
-            }
-
             // If this Tile ends a word, add it to the list, but continue processing any potential neighbors
             if ($this->Tree->doesWordExist($prefix)) {
-                echo $prefix . '<br />';
                 $this->word_list[] = $prefix;
             }
 
@@ -197,7 +188,9 @@
             $Tile->setIsUsed(true);
 
             // loop through the neighboring Tiles, checking the word list with the non-used ones appended to the prefix
-            foreach ($this->getNeighbors($Tile) as $Neighbor) {
+            $Neighbors = $this->getNeighbors($Tile);
+            echo count($Neighbors) . '<br />';
+            foreach ($Neighbors as $Neighbor) {
                 if (!$Neighbor->getIsUsed()) {
                     $this->getWords($Neighbor, $prefix . $Neighbor->getCharacter());
                 }
