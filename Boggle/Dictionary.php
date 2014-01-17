@@ -16,6 +16,8 @@
         /**
          * Get a list of all possible words that contain only the letters provided
          *
+         * @throws \DomainException
+         *
          * @abstract
          *
          * @param string $letters

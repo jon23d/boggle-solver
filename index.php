@@ -1,5 +1,6 @@
 <?
 
+// This is just a simple test file
 ini_set('display_errors', 'on');
 error_reporting(E_ALL);
 
@@ -17,7 +18,10 @@ spl_autoload_register(function($className) {
     require $fileName;
 });
 
-// let's just start with the test dictionary
-$LinuxDictionary = new \Boggle\Dictionaries\LinuxDictionary();
-$Game = new \Boggle\Game($LinuxDictionary, 4, 4);
+// Load a dictionary and look for words!
+$Dictionary = new \Boggle\Dictionaries\TextFileDictionary(
+    __DIR__ . '/Boggle/Dictionaries/english-list.txt',
+    PHP_EOL)
+;
+$Game = new \Boggle\Game($Dictionary, 4, 4);
 $Game->outputBoardAsHtml()->outputWordListAsHtml();

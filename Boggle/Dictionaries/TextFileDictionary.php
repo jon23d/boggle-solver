@@ -1,14 +1,13 @@
 <?
     /**
-     * A Dictionary that uses the wordlist found in /usr/share/dict/words
+     * A Dictionary that uses a file word list
      *
      * @package Boggle
      * @author Jonathon Deason <jon23d@gmail.com>
      */
-
     namespace Boggle\Dictionaries;
 
-    class LinuxDictionary implements \Boggle\Dictionary {
+    class TextFileDictionary implements \Boggle\Dictionary {
 
         /** @var string[]       A list of valid words using the letters provided in the constructor */
         private $word_list = array();
@@ -19,9 +18,37 @@
         /** @var int $largest_word_length   The length of the longest word */
         private $largest_word_length = 0;
 
+        /** @var string $file_name          The name of the file that contains the word list */
+        private $file_name = null;
+
+        /** @var string $delimiter          The delimiter used in the file */
+        private $delimiter = null;
+
+
+        /**
+         * Create a new TextFileDictionary, using the provided file and exploding with the given delimiter
+         *
+         * @throws \InvalidArgumentException
+         *
+         * @param string $file_name
+         * @param string $delimiter
+         *
+         * @return TextFileDictionary
+         */
+        public function __construct($file_name, $delimiter) {
+            if (!file_exists($file_name)) {
+                throw new \InvalidArgumentException('File does not exist: ' . $file_name);
+            }
+
+            $this->file_name = $file_name;
+            $this->delimiter = $delimiter;
+        }
+
 
         /**
          * Get a list of all possible words
+         *
+         * @throws \DomainException
          *
          * @param string $letters
          *
@@ -34,7 +61,7 @@
             }
 
             // all words in this dictionary
-            $all_words = $this->getTestWords();
+            $all_words = $this->loadWords();
 
             // We are going to filter all of the words in the dictionary first to ensure that the
             // list is as small as possible.  Only use words that can be formed by just the provided
@@ -51,6 +78,7 @@
 
             // set the initialization flag and return the word list
             $this->is_initialized = true;
+
             return $this->word_list;
         }
 
@@ -58,10 +86,18 @@
         /**
          * Get the list of test words from test_dictionary_word_list.txt
          *
+         * @throws \InvalidArgumentException
+         *
          * @return string[]
          */
-        private function getTestWords() {
-            return explode(PHP_EOL, file_get_contents('/usr/share/dict/words'));
+        private function loadWords() {
+            $words = explode($this->delimiter, file_get_contents($this->file_name));
+
+            if (!count($words)) {
+                throw new \InvalidArgumentException('File does not contain words when using provided delimiter');
+            }
+
+            return $words;
         }
 
 
