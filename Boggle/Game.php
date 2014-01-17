@@ -12,6 +12,14 @@
         /** @var string[] $word_list        A list of found words on the board */
         private $word_list = null;
 
+        /** @var int $height            The height of the board */
+        private $height = null;
+
+        /** @var int $width             The width of the board */
+        private $width = null;
+
+        private $iterations = 0;
+
         /**
          * Create a new Game
          *
@@ -32,8 +40,13 @@
                 throw new \InvalidArgumentException('Height and width must be integers greater than 1');
             }
 
-            $this->initializeBoard($width, $height)
-                ->initializeTree($Dictionary);
+            $this->initializeBoard($width, $height, true)
+                ->initializeTree($Dictionary)
+                ->height = $height;
+            $this->width = $width;
+            echo '<pre>';
+                print_r($this->Tree);
+            echo '</pre>';
         }
 
 
@@ -69,9 +82,9 @@
 
                 // the getWords function will recursively search the board, but must be provided the first Tile
                 foreach ($this->rows as $Tiles) {
-                    /** @var Tile $Tiles */
+                    /** @var Tile[] $Tiles */
                     foreach ($Tiles as $Tile) {
-                        $this->word_list = array_merge($this->word_list, $this->getWords($Tile));
+                        $this->getWords($Tile, $Tile->getCharacter());
                     }
                 }
             }
@@ -95,13 +108,23 @@
          *
          * @param int $width
          * @param int $height
+         * @param bool $use_test_data
          *
          * @return Game
          */
-        private function initializeBoard($width, $height) {
+        private function initializeBoard($width, $height, $use_test_data = false) {
+            $test_data = array('b','e','c','k');
+
             for ($row = 1; $row <= $height; $row++) {
                 for ($column = 1; $column <= $width; $column++) {
-                    $this->rows[$row][$column] = new Tile(chr(97 + mt_rand(0, 25)), $row, $column);
+                    if ($use_test_data === false) {
+                        $this->rows[$row][$column] = new Tile(chr(97 + mt_rand(0, 25)), $row, $column);
+                    } else {
+                        $letter = array_shift($test_data);
+                        $this->rows[$row][$column] = new Tile($letter, $row, $column);
+                        $test_data[] = $letter;
+                    }
+
                 }
             }
 
@@ -159,8 +182,29 @@
          * @return string[]
          */
         private function getWords(Tile $Tile, $prefix) {
-            $return_val = array();
+            if (++$this->iterations == 1000) {
+                print_r($this->word_list);
+                die;
+            }
 
+            // If this Tile ends a word, add it to the list, but continue processing any potential neighbors
+            if ($this->Tree->doesWordExist($prefix)) {
+                echo $prefix . '<br />';
+                $this->word_list[] = $prefix;
+            }
+
+            // mark this Tile as used to prevent an infinite loop
+            $Tile->setIsUsed(true);
+
+            // loop through the neighboring Tiles, checking the word list with the non-used ones appended to the prefix
+            foreach ($this->getNeighbors($Tile) as $Neighbor) {
+                if (!$Neighbor->getIsUsed()) {
+                    $this->getWords($Neighbor, $prefix . $Neighbor->getCharacter());
+                }
+            }
+
+            // We are done with this iteration, allow this Tile to be used in future combinations
+            $Tile->setIsUsed(false);
         }
 
 
@@ -172,7 +216,27 @@
          * @return Tile[]
          */
         private function getNeighbors(Tile $Tile) {
+            $Tiles = array();
 
+            $row = $Tile->getRow();
+            $column = $Tile->getColumn();
+
+            $min_row = ($row - 1 < 0) ? 0 : $row - 1;
+            $min_column = ($column - 1 < 0) ? 0 : $column - 1;
+            $max_row = ($row + 1 > $this->height) ? $this->height : $row + 1;
+            $max_column = ($column + 1 > $this->width) ? $this->width : $column + 1;
+
+            for ($r = $min_row; $r <= $max_row; $r++) {
+                for ($c = $min_column; $c <= $max_column; $c++) {
+                    if ($r == $row && $c == $column) continue;
+
+                    if (isset($this->rows[$r][$c])) {
+                        $Tiles[] = $this->rows[$r][$c];
+                    }
+                }
+            }
+
+            return $Tiles;
         }
 
     }

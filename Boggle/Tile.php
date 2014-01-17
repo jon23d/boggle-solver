@@ -27,7 +27,7 @@
          * @return Tile
          */
         public function __construct($character, $row_number, $column_number) {
-            if (strlen($character != 1) || 1 !== preg_match('/^[a-z]{1}$/', strtolower($character))) {
+            if (strlen($character) != 1 || 1 !== preg_match('/^[a-z]{1}$/', strtolower($character))) {
                 throw new \InvalidArgumentException('Character must be one letter in length');
             }
 
@@ -66,6 +66,26 @@
          */
         public function getCharacter() {
             return $this->letter;
+        }
+
+
+        /**
+         * Get the row number
+         *
+         * @return int
+         */
+        public function getRow() {
+            return $this->row_number;
+        }
+
+
+        /**
+         * Get the column number
+         *
+         * @return int
+         */
+        public function getColumn() {
+            return $this->column_number;
         }
 
     }

@@ -31,8 +31,8 @@
             // letters
             $regex = '/^[' . $letters . ']+$/';
             foreach ($all_words as $word) {
-                if (1 === preg_match($regex, $word)) {
-                    $this->word_list[] = $word;
+                if (1 === preg_match($regex, strtolower($word))) {
+                    $this->word_list[] = strtolower($word);
                 }
             }
 

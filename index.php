@@ -1,5 +1,8 @@
 <?
 
+ini_set('display_errors', 'on');
+error_reporting(E_ALL);
+
 // create a basic autoloader
 spl_autoload_register(function($className) {
     $className = ltrim($className, '\\');
@@ -16,6 +19,6 @@ spl_autoload_register(function($className) {
 
 // let's just start with the test dictionary
 $TestDictionary = new \Boggle\Dictionaries\TestDictionary();
-$Game = new \Boggle\Game($TestDictionary);
-echo $Game->outputBoardAsHtml();
-echo $Game->outputWordListAsHtml();
+$Game = new \Boggle\Game($TestDictionary, 6, 6);
+$Game->outputBoardAsHtml();
+$Game->outputWordListAsHtml();
